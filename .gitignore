@@ -1,0 +1,6 @@
+# Ignore local flatvc databases
+.flatvc_db/
+
+# Ignore compiled binaries
+*.exe
+flatvc

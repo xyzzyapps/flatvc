@@ -101,3 +101,31 @@ go test -v ./...
 # Build executable
 go build -o flatvc.exe
 ```
+
+---
+
+## License
+
+`flatvc` is licensed under the **PolyForm Noncommercial License 1.0.0**.
+
+* Full text: [`LICENSE`](LICENSE)
+* Canonical URL: <https://polyformproject.org/licenses/noncommercial/1.0.0>
+
+This is a **source-available, noncommercial** license — it is *not* an
+open-source license. In short:
+
+* **Permitted:** any noncommercial purpose, including personal use for
+  research, experiment, testing, study, hobby projects and amateur
+  pursuits, as well as use by charitable, educational, public research,
+  public safety/health, environmental, or government organizations.
+* **Also permitted:** changing the software and distributing copies, as
+  long as you comply with the license terms and pass along the notice below.
+* **Not permitted:** any commercial use, and sublicensing or transferring
+  the license to others.
+
+Required Notice:
+
+> Required Notice: Copyright Xyzzy Apps (xyzzyapps@gmail.com)
+
+Any distribution of the software or works based on it must include these
+terms (or their URL) together with the Required Notice line above.

@@ -14,27 +14,27 @@ Unlike Git, which uses `tree` objects representing nested folders to calculate p
 ### Storage Architecture Diagram
 ```mermaid
 graph TD
-    subgraph Working Directory
-        A[file1.txt]
-        B[src/main.go]
+    subgraph WD["Working Directory"]
+        A["file1.txt"]
+        B["src/main.go"]
     end
 
-    subgraph .flatvc_db Directory
-        subgraph Pebble KV Store (metadata)
-            HeadRef[ref:head] -->|points to| BranchRef[branch:main]
-            BranchRef -->|resolves to| LatestCommit[commit:3b7a1e...]
-            LatestCommit -->|parent_id| ParentCommit[commit:f5d2b...]
+    subgraph DB[".flatvc_db Directory"]
+        subgraph KV["Pebble KV Store (metadata)"]
+            HeadRef["ref:head"] -->|points to| BranchRef["branch:main"]
+            BranchRef -->|resolves to| LatestCommit["commit:3b7a1e..."]
+            LatestCommit -->|parent_id| ParentCommit["commit:f5d2b..."]
             LatestCommit -->|files map| PathMap["src/main.go -> hash_abc123...<br>file1.txt -> hash_xyz890..."]
         end
 
-        subgraph Blobs Store (CAS)
+        subgraph CAS["Blobs Store (CAS)"]
             Blob1["blobs/xyz890... (file1.txt content)"]
             Blob2["blobs/abc123... (src/main.go content)"]
         end
     end
 
-    A -.->|hash & copy| Blob1
-    B -.->|hash & copy| Blob2
+    A -.->|"hash and copy"| Blob1
+    B -.->|"hash and copy"| Blob2
 ```
 
 ---
